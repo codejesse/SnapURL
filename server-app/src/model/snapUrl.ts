@@ -2,22 +2,27 @@
 import mongoose from "mongoose";
 import { nanoid } from "nanoid";
 
-const snapUrlSchema = new mongoose.Schema({
+const generateId = () => Math.random().toString(36).substr(2, 10);
+
+const snapUrlSchema = new mongoose.Schema(
+  {
     fullUrl: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
     snapUrl: {
-        type: String,
-        required: true,
-        default: () => nanoid().substring(0,10)
+      type: String,
+      required: true,
+      default: generateId,
     },
     clicks: {
-        type: Number,
-        default: 0
-    }
-}, {
-    timestamps: true
-})
+      type: Number,
+      default: 0,
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
 
 export const urlModel = mongoose.model("snapUrl", snapUrlSchema);
