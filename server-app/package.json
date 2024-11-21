@@ -2,12 +2,11 @@
   "name": "snapurl-url-shortener",
   "version": "1.0.0",
   "description": "snapurl url api",
-  "type": "commonjs",
   "main": "server.js",
   "scripts": {
     "build": "npx tsc",
     "start": "tsc && node ./dist/server.cjs",
-    "dev": "nodemon --exec 'node --no-warnings=ExperimentalWarning --loader ts-node/esm ./src/server.ts'",
+    "dev": "nodemon ./src/server.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Jesse Beke",
